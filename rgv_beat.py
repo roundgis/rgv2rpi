@@ -21,7 +21,7 @@ def Start():
 
     daily_trigger = CronTrigger(second=1)
     scheduler_obj.add_job(threads.blockingCallFromThread, daily_trigger,
-                          args=(reactor, beat_tasks.RemoveTtlRecord),
+                          args=(reactor, lambda: defer.ensureDeferred(beat_tasks.RemoveTtlRecord())),
                           replace_existing=True, id='remove_ttl')
 
     scheduler_obj.start()
