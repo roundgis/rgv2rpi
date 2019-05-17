@@ -1,0 +1,11 @@
+[Unit]
+Description=run rgv
+After=network.target
+
+[Service]
+LimitNOFILE=20000
+ExecStart=/usr/bin/python /home/mathgl/rgv_master.py start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
