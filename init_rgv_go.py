@@ -11,7 +11,7 @@ import settings
 
 def SetRoot(connid):
     connid.execute("insert into rgv_user(id,uno,password,name) values(?,?,?,?)",
-                   ("root", rgv_consts.UserNo.ROOT, 'root', "123"))
+                   ("root", rgv_consts.UserNo.ROOT, '123', "sys adm"))
 
 
 def main(db_path):
